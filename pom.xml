@@ -45,6 +45,13 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
 		<!-- 單元測試 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
