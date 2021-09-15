@@ -32,6 +32,19 @@
 			<optional>true</optional>
 		</dependency>
 		
+		<!-- MySQL Driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- JDBC API -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		
 		<!-- 單元測試 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
