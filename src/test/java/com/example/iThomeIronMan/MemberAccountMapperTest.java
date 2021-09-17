@@ -28,7 +28,7 @@ public class MemberAccountMapperTest {
 	@Test
 	void testAdd() {
 
-		String account = "admin2";
+		String account = "admin3";
 		String password = "test1234";
 		String salt = UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
 		String md5Password = getMd5Password(password, salt);
@@ -47,7 +47,7 @@ public class MemberAccountMapperTest {
 	@Test
 	void testGetMemberAccountByAccount() {
 
-		String account = "admin2";
+		String account = "admin3";
 		
 		MemberAccount data = memberAccountMapper.getMemberAccountByAccount(account);
 		System.err.println(data);
@@ -56,7 +56,7 @@ public class MemberAccountMapperTest {
 	@Test
 	void testUpdate() {
 		
-		String account = "admin";
+		String account = "admin3";
 		String password = "admin1234";
 		
 		MemberAccount data = memberAccountMapper.getMemberAccountByAccount(account);
