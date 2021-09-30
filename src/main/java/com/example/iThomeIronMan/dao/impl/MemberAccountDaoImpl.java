@@ -48,7 +48,8 @@ public class MemberAccountDaoImpl implements MemberAccountDao {
 	public MemberAccount getMemberAccountByAccount(String account) {
 		
 		String sql = " SELECT "
-				   + "		ID, ACCOUNT, PASSWORD, SALT "
+				   + "		ID, ACCOUNT, PASSWORD, SALT, "
+				   + "		CREATE_BY, CREATE_TIME, UPDATE_BY, UPDATE_TIME "
 				   + " FROM "
 				   + "		test_project.member_account "
 				   + " WHERE "
