@@ -1,6 +1,14 @@
 $(() => {
     $("#registerForm").on("submit", function() {
 
+        // 檢查姓名
+        var name = $("#name").val();
+        if(name == "") {
+            alert("請輸入姓名");
+            $("#name").focus();
+            return false;
+        }
+
         // 檢查帳號
         var account = $("#account").val();
         if(account == "") {
@@ -10,7 +18,8 @@ $(() => {
         }
 
         if(!isEmail(account)) {
-
+            alert("帳號必須是Email 格式");
+            $("#account").focus();
             return false;
         }
 
@@ -23,7 +32,8 @@ $(() => {
         }
 
         if(!isPasswordFormat(password)) {
-
+            alert("密碼必須為6~16為英文加數字");
+            $("#password").focus();
             return false;
         }
 
@@ -45,6 +55,7 @@ $(() => {
             url : "/register",
             type : "POST",
             data : {
+                "name" : name,
                 "account" : account,
                 "password" : password,
                 "checkPassword" : checkPassword
