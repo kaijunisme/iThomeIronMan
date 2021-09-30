@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<header th:fragment="header">
+    <div class="mobile-menu-content">
+        <section class="menu-title">
+            <div class="menu-title-img"><img th:src="@{/images/smile_face.png}"></div>
+            <span>Hi ~ 帳號 or 姓名</span>
+        </section>
+        <section class="menu">
+            <a class="menu-item" href="./information.html">
+                <div class="menu-item-img"><img th:src="@{/images/person.png}"></div>
+                <span>個人資料維護</span>
+            </a>
+            <a class="menu-item" href="./updatePassword.html">
+                <div class="menu-item-img"><img th:src="@{/images/lock.png}"></div>
+                <span>修改密碼</span>
+            </a>
+        </section>
+    </div>
+    <div class="header">
+        <section class="mobile-menu">
+            <div class="mobile-menu-button"><img th:src="@{/images/menu.png}"></div>
+        </section>
+        <section class="logo">
+            <a href="#"><span>鐵人賽作品</span></a>
+        </section>
+        <section class="menu">
+            <a class="menu-item" href="./information.html">
+                <div class="menu-item-img"><img th:src="@{/images/person.png}"></div>
+                <span>個人資料維護</span>
+            </a>
+            <a class="menu-item" href="./updatePassword.html">
+                <div class="menu-item-img"><img th:src="@{/images/lock.png}"></div>
+                <span>修改密碼</span>
+            </a>
+            <a class="menu-item" href="#">
+                <div class="menu-item-img"><img th:src="@{/images/exit_to_app.png}"></div>
+                <span>登出</span>
+            </a>
+        </section>
+        <section class="mobile-logout">
+            <a href="#"><div class="mobile-logout-button"><img th:src="@{/images/exit_to_app.png}"></div></a>
+        </section>
+    </div>
+</header>
+</html>

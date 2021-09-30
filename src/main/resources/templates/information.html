@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Information Page</title>
+    <head th:insert="load/css :: css"></head>
+    <head th:insert="load/js :: js"></head>
+    <link rel="stylesheet" th:href="@{/css/information.css}">
+</head>
+<body>
+    <section th:replace="load/header :: header"></section>
+    <section class="background-gray"></section>
+
+    <section class="wrap">
+        <div class="main-content">
+            <section class="content">
+                <div class="title-block">
+                    <span>個人資料維護</span>
+                </div>
+                <div class="form-block">
+                    <form class="information-form" id="informationForm" method="POST" th:action="@{/information}" enctype="multipart/form-data" autocomplete="off">
+                        <section class="form-input-block">
+                            <div class="input-label">帳號/Email</div>
+                            <div class="input-area">
+                                <div class="input-img"><img th:src="@{/images/person.png}"></div>
+                                <input type="text" id="account" name="account" maxlength="64" placeholder="請輸入帳號" disabled="true"/>
+                            </div>
+                        </section>
+                        <section class="form-input-block">
+                            <div class="input-label">姓名</div>
+                            <div class="input-area">
+                                <input type="text" id="name" name="name" maxlength="64" placeholder="請輸入您的姓名"/>
+                            </div>
+                        </section>
+                        <section class="form-select-block">
+                            <div class="input-label">生日</div>
+                            <div class="input-area">
+                                <select class="select-birthday">
+                                    <option>年</option>
+                                </select>
+                                <select class="select-birthday">
+                                    <option>月</option>
+                                </select>
+                                <select class="select-birthday">
+                                    <option>日</option>
+                                </select>
+                            </div>
+                        </section>
+                        <section class="form-input-block">
+                            <div class="input-label">聯絡電話</div>
+                            <div class="input-area">
+                                <input type="text" id="phone" name="phone" maxlength="10" placeholder="請輸入您的聯絡電話"/>
+                            </div>
+                        </section>
+                        <section class="form-select-block">
+                            <div class="input-label">地址</div>
+                            <div class="input-area">
+                                <select class="select-address">
+                                    <option>縣市</option>
+                                </select>
+                                <select class="select-address">
+                                    <option>地區</option>
+                                </select>
+                                <input type="text" id="address" name="address" placeholder="請輸入您的地址"/>
+                            </div>
+                        </section>
+                        <button type="submit">儲存修改</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section th:replace="load/footer :: footer"></section>
+
+    <script th:src="@{/js/information.js}"></script>
+</body>
+</html>

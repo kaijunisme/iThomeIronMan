@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register Page</title>
+    <head th:insert="load/css :: css"></head>
+    <head th:insert="load/js :: js"></head>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+    <section class="title-block">
+        <span>Member Register </span>
+    </section>
+    <section class="form-block">
+        <form class="register-form" id="registerForm" th:Object="${memberAccount}" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <section class="form-input-block">
+                <div class="input-label">帳號/Email</div>
+                <div class="input-area">
+                    <div class="input-img"><img th:src="@{/images/person.png}"></div>
+                    <input type="text" th:field="*{account}" maxlength="64" placeholder="請輸入帳號"/>
+                </div>
+            </section>
+            <section class="form-input-block">
+                <div class="input-label">密碼</div>
+                <div class="input-area">
+                    <div class="input-img"><img th:src="@{/images/lock.png}"></div>
+                    <input type="password" th:field="*{password}" maxlength="16" placeholder="請輸入密碼"/>
+                </div>
+            </section>
+            <section class="form-input-block">
+                <div class="input-label">確認密碼</div>
+                <div class="input-area">
+                    <div class="input-img"><img th:src="@{/images/lock.png}"></div>
+                    <input type="password" id="checkPassword" name="checkPassword" maxlength="16" placeholder="請再次輸入密碼"/>
+                </div>
+            </section>
+            <button type="submit">註冊</button>
+            <section class="form-link">
+                <span>已經有帳號?</span><a th:href="@{/login}">立即登入</a>
+            </section>
+        </form>
+    </section>
+
+    <script th:src="@{/js/register.js}"></script>
+</body>
+</html>

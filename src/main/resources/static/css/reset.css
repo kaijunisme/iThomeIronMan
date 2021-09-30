@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body, h1, h2, h3, h4, h5, h6, hr, p, 
+blockquote, div, span,
+dl, dt, dd, ul, ol, li,
+pre,
+form, fieldset, legend, input, textarea,
+th, td,
+img{ 
+  margin: 0px;
+  padding: 0px;
+  border-width: 0px;
+  border-style: none;
+  border-image-source: none;
+  border-image-slice: 100% 100% 100% 100%;
+  border-image-width: 1 1 1 1;
+  border-image-outset: 0 0 0 0;
+  border-image-repeat: stretch stretch;
+  outline-width: 0px;
+  outline-style: none;
+  vertical-align: baseline;
+  background-color: transparent;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  background-clip: border-box;
+  background-origin: padding-box;
+  background-size: auto auto;
+  box-sizing: border-box;
+}
+body,button, input, select, textarea
+{font: '微軟正黑體',tahoma, Srial, helvetica, sans-serif;}
+em{font-style:normal;}
+ul, ol{list-style: none;}
+a {text-decoration: none; color:#333;} 
+a:hover{text-decoration: none;color:#333;}
+img{border:0px;}
+table{border-collapse: collapse; border-spacing: 0;}
+caption,th{text-align:center;}

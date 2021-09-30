@@ -1,0 +1,274 @@
+body {
+    background-color: #EEE;
+}
+
+header {
+    width: 100%;
+    height: 48px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px #BBB;
+}
+
+header .mobile-menu-content {
+    width: 58%;
+    height: 100vh;
+    
+    position: fixed;
+    left: -100%;
+    transition: all 1s;
+    z-index: 3;
+}
+
+header .mobile-menu-content.active {
+    position: fixed;
+    left: 0%;
+    transition: all 0.5s;
+}
+
+header .mobile-menu-content .menu-title {
+    background-color: #C4C4C4;
+    text-align: center;
+
+    padding: 32px 0;
+}
+
+header .mobile-menu-content .menu-title .menu-title-img {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 16px;
+}
+
+header .mobile-menu-content .menu-title .menu-title-img img {
+    width: 100%;
+    height: 100%;   
+}
+
+header .mobile-menu-content .menu {
+    height: calc(100vh - 128px);
+    background-color: #FFF;
+
+    padding-top: 32px;
+}
+
+header .mobile-menu-content .menu .menu-item {
+    font-size: 18px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: 32px;
+    margin-bottom: 32px;
+}
+
+header .mobile-menu-content .menu .menu-item .menu-item-img {
+    width: 32px;
+    height: 32px;
+
+    margin-right: 8px;
+}
+
+header .mobile-menu-content .menu .menu-item .menu-item-img img {
+    width: 100%;
+    height: 100%;   
+}
+
+header .header {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+
+    padding: 0 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto;
+}
+
+header .header .mobile-menu {
+    display: none;
+}
+
+header .header .mobile-menu .mobile-menu-button {
+    width: 32px;
+    height: 32px;
+}
+
+header .header .mobile-menu .mobile-menu-button img {
+    width: 100%;
+    height: 100%;
+}
+
+header .header .logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+header .header .menu {
+    height: 100%;
+
+    display: flex;
+}
+
+header .header .menu .menu-item {
+    color: #444;
+    font-weight: 600;
+    cursor: pointer;
+
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+}
+
+header .header .menu .menu-item:hover {
+    background-color: #777;
+}
+
+header .header .menu .menu-item:hover a {
+    color: #FFF;
+}
+
+header .header .menu .menu-item .menu-item-img {
+    width: 24px;
+    height: 24px;
+
+    float: left;
+
+    margin-right: 8px;
+}
+
+header .header .menu .menu-item .menu-item-img img {
+    width: 100%;
+    height: 100%;
+}
+
+header .header .mobile-logout {
+    display: none;
+}
+
+header .header .mobile-logout .mobile-logout-button {
+    width: 32px;
+    height: 32px;
+}
+
+header .header .mobile-logout .mobile-logout-button img {
+    width: 100%;
+    height: 100%;
+}
+
+section.background-gray {
+    width: 100vw;
+    height: 100vh;
+    background-color: #777;
+    opacity: 0.7;
+
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+section.background-gray.active {
+    display: block;
+}
+
+section.wrap {
+    width: 100%;
+    height: calc(100% - 112px - 128px);
+    min-height: calc(100vh - 112px - 128px);
+
+    margin: 64px auto;
+}
+
+section.wrap .main-content {
+    width: 100%;
+    max-width: 1200px;
+
+    padding: 0 40px;
+
+    margin: 0 auto;
+}
+
+section.wrap .main-content .content {
+    width: 65%;
+    height: 100%;
+    background-color: #FFF;
+
+    padding: 64px 0;
+
+    margin: 0 auto;
+}
+
+section.wrap .main-content .content .title-block {
+    color: #444;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: center;
+
+    margin-bottom: 56px;
+}
+
+footer {
+    width: 100%;
+    height: 64px;
+    background-color: #FFF;
+}
+
+footer .footer {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+
+    color: #777;
+    font-size: 18px;
+    text-align: center;
+    line-height: 64px;
+
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1024) {
+
+}
+
+@media only screen and (max-width: 416px) {
+    header .header {
+        padding: 0 16px;
+    }
+
+    header .header .mobile-menu {
+        display: block;
+    }
+
+    header .header .menu {
+        display: none;
+    }
+
+    header .header .mobile-logout {
+        display: block;
+    }
+
+    section.wrap {
+        margin: auto;
+    }
+
+    section.wrap .main-content {
+        padding: 0;
+    }
+
+    section.wrap .main-content .content {
+        width: 90%;
+        background-color: #EEE;
+    
+        padding: 0;
+    }
+    
+    footer {
+        display: none;
+    }
+}
