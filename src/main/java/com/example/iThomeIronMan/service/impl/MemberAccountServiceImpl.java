@@ -34,20 +34,10 @@ public class MemberAccountServiceImpl implements MemberAccountService {
 	@Transactional
 	public String register(MemberAccount memberAccount, String name) {
 		
-		// 檢查帳號是否符合格式
-		if(!memberAccount.getAccount().matches("^[_a-zA-Z0-9-]+([.][_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+([.][a-zA-Z0-9-]+)*$")) {
-			return "不符合Email 格式";
-		}
-		
 		// 檢查帳號是否已被註冊
 		MemberAccount data = memberAccountDao.getMemberAccountByAccount(memberAccount.getAccount());
 		if(data != null) {
 			return "該帳號已被註冊";
-		}
-		
-		// 檢查密碼是否符合格式
-		if(!memberAccount.getPassword().matches("^[a-zA-Z]{1}[a-zA-Z0-9]{7,15}$")) {
-			return "不符合密碼格式";
 		}
 
 		// 產生鹽值

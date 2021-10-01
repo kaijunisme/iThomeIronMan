@@ -1,8 +1,11 @@
 package com.example.iThomeIronMan.controller;
 
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +51,7 @@ public class LoginRegisterController {
 	public String doRegister(
 			@RequestParam(value = "name") String name,
 			@RequestParam(value = "checkPassword") String checkPassword,
-			@ModelAttribute MemberAccount memberAccount) {
+			@Validated @ModelAttribute MemberAccount memberAccount) {
 		
 		if(!memberAccount.getPassword().equals(checkPassword)) {
 			return "確認密碼與密碼不相符";
