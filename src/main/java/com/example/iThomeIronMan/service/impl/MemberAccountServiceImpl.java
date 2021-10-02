@@ -12,6 +12,8 @@ import com.example.iThomeIronMan.model.Member;
 import com.example.iThomeIronMan.model.MemberAccount;
 import com.example.iThomeIronMan.service.MemberAccountService;
 import com.example.iThomeIronMan.service.MemberService;
+import com.example.iThomeIronMan.service.ex.AccountDuplicateException;
+import com.example.iThomeIronMan.service.ex.InsertException;
 
 @Service
 public class MemberAccountServiceImpl implements MemberAccountService {
@@ -36,10 +38,8 @@ public class MemberAccountServiceImpl implements MemberAccountService {
 		
 		// 檢查帳號是否已被註冊
 		MemberAccount data = memberAccountDao.getMemberAccountByAccount(memberAccount.getAccount());
-		if(data != null) {
-			return "該帳號已被註冊";
-		}
-
+		if(data != null) throw new AccountDuplicateException("該帳號已被註冊");
+		
 		// 產生鹽值
 		String salt = UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
 		memberAccount.setSalt(salt);
@@ -52,9 +52,7 @@ public class MemberAccountServiceImpl implements MemberAccountService {
 		memberAccount.setCreate_by(memberAccount.getAccount());
 		memberAccount.setUpdate_by(memberAccount.getAccount());
 		Integer id = memberAccountDao.add(memberAccount);
-		if(id == 0) {
-			return "新增帳號時發生錯誤";
-		}
+		if(id == 0) throw new InsertException("新增帳號時發生錯誤");
 
 		// 新增會員資訊
 		Member member = new Member();
@@ -63,9 +61,7 @@ public class MemberAccountServiceImpl implements MemberAccountService {
 		member.setCreate_by(memberAccount.getAccount());
 		member.setUpdate_by(memberAccount.getAccount());
 		Integer result = memberService.add(member);
-		if(result == 0) {
-			return "新增帳號時發生錯誤";
-		}
+		if(result == 0) throw new InsertException("新增帳號時發生錯誤");
 
 		return null;
 	}

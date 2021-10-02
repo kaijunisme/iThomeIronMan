@@ -1,8 +1,8 @@
 package com.example.iThomeIronMan.controller;
 
-import javax.validation.constraints.NotBlank;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -48,17 +48,17 @@ public class LoginRegisterController {
 
 	@RequestMapping(value = "register", method = {RequestMethod.POST})
 	@ResponseBody
-	public String doRegister(
+	public ResponseEntity<?> doRegister(
 			@RequestParam(value = "name") String name,
 			@RequestParam(value = "checkPassword") String checkPassword,
 			@Validated @ModelAttribute MemberAccount memberAccount) {
 		
 		if(!memberAccount.getPassword().equals(checkPassword)) {
-			return "確認密碼與密碼不相符";
+			return new ResponseEntity<>("確認密碼與密碼不相符", HttpStatus.OK);
 		}
 		
 		String result = memberAccountService.register(memberAccount, name);
-		return result;
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
 }
