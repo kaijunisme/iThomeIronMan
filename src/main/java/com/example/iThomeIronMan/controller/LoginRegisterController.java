@@ -1,5 +1,7 @@
 package com.example.iThomeIronMan.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,8 @@ public class LoginRegisterController {
 	@Autowired
 	private MemberAccountService memberAccountService;
 	
+	private static final Logger logger = LoggerFactory.getLogger(LoginRegisterController.class);
+	
 	@RequestMapping(value = "/login", method = {RequestMethod.GET})
 	public String login(@ModelAttribute MemberAccount memberAccount) {
 				
@@ -35,8 +39,10 @@ public class LoginRegisterController {
 		
 		Member result = memberAccountService.login(memberAccount);
 		if(result == null) {
+			logger.warn(memberAccount.getAccount() + "嘗試登入系統");
 			return "redirect:login";
 		}
+		logger.info(result.getName() + "登入系統");
 		return "redirect:information";
 	}
 	
