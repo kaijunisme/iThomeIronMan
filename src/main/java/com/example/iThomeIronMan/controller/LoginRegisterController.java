@@ -1,5 +1,7 @@
 package com.example.iThomeIronMan.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.iThomeIronMan.model.Member;
 import com.example.iThomeIronMan.model.MemberAccount;
@@ -35,13 +38,16 @@ public class LoginRegisterController {
 	@RequestMapping(value = "/login", method = {RequestMethod.POST})
 	public String doLogin(
 			@ModelAttribute MemberAccount memberAccount, 
-			Model model) {
+			Model model,
+			HttpSession session) {
 		
 		Member result = memberAccountService.login(memberAccount);
 		if(result == null) {
 			logger.warn(memberAccount.getAccount() + "嘗試登入系統");
 			return "redirect:login";
 		}
+		
+		session.setAttribute("MemberSession", result);
 		logger.info(result.getName() + "登入系統");
 		return "redirect:information";
 	}
@@ -66,5 +72,15 @@ public class LoginRegisterController {
 		String result = memberAccountService.register(memberAccount, name);
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-	
+
+	@RequestMapping(value = "/logout", method = {RequestMethod.GET})
+	public String logout(HttpSession session, SessionStatus sessionStatus) {
+		
+		if(session.getAttribute("MemberSession") != null){
+			session.removeAttribute("MemberSession");
+			sessionStatus.setComplete();
+		}
+		
+		return "redirect:login";
+	}
 }
